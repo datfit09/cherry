@@ -1,0 +1,1 @@
+<?phpadd_action( 'after_single_author', 'phungdat_blog_info' );
