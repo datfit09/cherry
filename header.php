@@ -7,10 +7,11 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header class="header">    
+    <header class="header">
         <div class="topnav">
             <div class="container">
-                <h2 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Cherry</a></h2>
+                
+                <?php phungdat_logo(); ?>
 
                 <ul class="menu">
                     <?php phungdat_menu( 'primary-menu' ); ?>
@@ -26,9 +27,11 @@
             <div class="container">
                 <div class="block">
                     <h1 class="blog-title">
-                        Our Stories
+                        <?php echo esc_html( get_option( 'blog_title' ) ); ?>
                     </h1>
-                    <h2 class="index-title">KEEP UPDATE WITH US</h2>
+                    <h2 class="index-title">
+                        <?php echo esc_html( get_option( 'meta_title' ) ); ?>
+                    </h2>
 
                 </div>
             </div>

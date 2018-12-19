@@ -8,7 +8,10 @@ define( 'THEME_URI', get_template_directory_uri() . '/' );
 define( 'THEME_DIR', get_template_directory() . '/' );
 
 // Chi duong dan do_action den Template hooks 
-require_once THEME_DIR . 'hooks/template-hooks.php';
+require_once THEME_DIR . 'inc/template-hooks.php';
+
+
+require_once THEME_DIR . 'inc/customizer.php';
 
 /*
 @ Thiet lap chieu rong noi dung
@@ -32,6 +35,19 @@ if ( ! function_exists( 'phungdat_theme_setup' ) ) {
 
         /* Them post thumbnail */
         add_theme_support( 'post-thumbnails' );
+
+
+        /* Them custumer logo */
+        add_theme_support(
+            'custom-logo' ,
+            array(
+                'height'      => 100,
+                'width'       => 400,
+                'flex-height' => true,
+                'flex-width'  => true,
+                'header-text' => array( 'site-title', 'site-description' ),
+            )
+        );
 
         /* Post formats */
         add_theme_support( 'post-formats' , array(
@@ -57,6 +73,7 @@ if ( ! function_exists( 'phungdat_theme_setup' ) ) {
     }
     add_action( 'after_setup_theme', 'phungdat_theme_setup' );
 }
+
 
 /* Them menu */
 function register_my_menus() {
@@ -228,7 +245,6 @@ if ( !function_exists( 'phungdat_entry_meta' ) ) {
     <?php }
 }
 
-
 /**   
     @ Hàm hiển thị nội dung của post type
     @ Hàm này sẽ hiển thị đoạn rút gọn của post ngoài trang chủ (the_excerpt)
@@ -312,11 +328,51 @@ function theme_slug_widgets_init() {
             'name'          => __( 'Main Sidebar', 'phungdat' ),
             'id'            => 'main-sidebar',
             'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'phungdat' ),
-            'before_widget' => '<li id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</li>',
+            'before_widget' => '<ul id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</ul>',
+            'before_title'  => '<h2 class="widgettitle">',
+            'after_title'   => '</h2>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer Widget', 'phungdat' ),
+            'id'            => 'footer-widget',
+            'description'   => __( 'Widgets in this area will be shown on foooter.', 'phungdat' ),
+            'before_widget' => '<ul id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</ul>',
             'before_title'  => '<h2 class="widgettitle">',
             'after_title'   => '</h2>',
         )
     );
 }
+
+if ( ! function_exists( 'phungdat_logo' ) ) {
+    function phungdat_logo() {
+        $id  = get_theme_mod( 'custom_logo' );
+        $img = wp_get_attachment_image_src( $id, 'full' );
+        ?>
+        <h2 class="logo">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <img src="<?php echo esc_url( $img[0] ); ?>" alt="<?php esc_attr__( 'Logo Image', 'phungdat' ); ?>">
+            </a>
+        </h2>
+        <?php
+    }
+}
+
+if ( ! function_exists( 'phungdat_logo_footer' ) ) {
+    function phungdat_logo_footer() {
+        $imgft  = get_option( 'footer_logo_image' );
+        ?>
+
+        <img src="<?php echo esc_url( $imgft ); ?>" alt="<?php esc_attr__( 'Logo Image Footer', 'phungdat' ); ?>">
+
+        <?php
+    }
+}
+
+
+
 
