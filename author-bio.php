@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <p class="comment-text">
-                <?php echo get_the_author_description(); ?>
+                <?php echo get_the_author_meta( 'description' ); ?>
             </p>
         </div>
     </div>

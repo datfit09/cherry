@@ -41,18 +41,23 @@ body {
 }
     
 a {
+    font-family: "DroidSerif";
+    font-size: 14px;
+    font-weight: 400;
     transition-duration: 0.3s;
     text-decoration: none;
     color: #000;
 }
-    
-img {
-    max-width: 100%;
-}
-    
+
 li {
     list-style: none;
 }
+
+.pagination {
+    display: block;
+    clear: both;
+}
+
     
 .row {
     margin-left: -15px;
@@ -351,7 +356,19 @@ li {
 }
 
 .widget_search h2.widgettitle {
-    margin-top: 0 !important;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-top: 0 !important;
+}
+
+h2.widgettitle {
+    font-family: "DroidSerif";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding: 30px 0;
 }
 
 ul.blog-info.blog {
@@ -621,13 +638,19 @@ cite.fn{
     font-style: normal;
 }
 span.says, .reply{
-    display: none;
+    margin: 10px 0;
+}
+
+.athour-box {
+    margin: 20px 0;
 }
 
 /*-Blog -grid site*/
 .blog img {
     opacity: 0.8;
     transition-duration: 0.3s;
+    object-fit: cover;
+
 }
 rotate .blog img:hover {
     opacity: 1;
@@ -1140,9 +1163,4 @@ blockquote.right {
     width: 1px;
     word-wrap: normal !important;
     }
-    h2.widgettitle {
-    font-family: "DroidSerif";
-    text-transform: uppercase;
-    margin-top: 50px;
-    margin-bottom: 35px;
-    }
+    

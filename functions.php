@@ -103,7 +103,7 @@ if ( ! function_exists( 'phungdat_menu' ) ) {
             'theme_location'  => $menu,
             'container'       => 'nav',
             'container_class' => $menu,
-            'items_wrap'=> ' <ul id="%1$s" class="%2$s"> %3$s </ul> '
+            'items_wrap'      => '<ul id="%1$s" class="%2$s"> %3$s </ul>'
         );
         wp_nav_menu( $menu );
     }
@@ -275,10 +275,6 @@ function phungdat_styles() {
      * Hàm get_stylesheet_uri() sẽ trả về giá trị dẫn đến file style.css của theme
      * Nếu sử dụng child theme, thì file style.css này vẫn load ra từ theme mẹ
      */
-    wp_enqueue_style(
-        'main-style',
-        get_stylesheet_uri()
-    );
 
     /* Reset css */
     wp_enqueue_style( 
@@ -296,7 +292,14 @@ function phungdat_styles() {
     wp_enqueue_script( 
         'option' , 
         THEME_URI . 'assets/js/option.js' , 
-        array( 'jquery' )
+        array( 'jquery' ),
+        null,
+        true
+    );
+
+    wp_enqueue_style(
+        'main-style',
+        get_stylesheet_uri()
     );
 }
 add_action( 'wp_enqueue_scripts', 'phungdat_styles' );

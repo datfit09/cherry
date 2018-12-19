@@ -10,11 +10,10 @@ if ( ! is_singular( 'post' ) ) {
         <a href="<?php the_permalink(); ?>">
             <?php the_post_thumbnail(); ?>
         </a>
+
         <?php
             if ( is_singular( 'post' ) ) {
                 the_content();
-            } else {
-                the_excerpt();
             }
         ?>
 
@@ -28,6 +27,6 @@ if ( ! is_singular( 'post' ) ) {
             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </h2>
 
-        <?php phungdat_blog_info(); ?>
+
     </div>
 </article>

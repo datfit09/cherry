@@ -147,6 +147,8 @@ sup {
 
 img {
   border-style: none;
+  object-fit: cover;
+  max-width: 100%;
 }
 
 /* Forms
@@ -166,6 +168,7 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  max-width: 100%;
 }
 
 /**
