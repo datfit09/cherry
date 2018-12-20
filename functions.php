@@ -8,15 +8,13 @@ define( 'THEME_URI', get_template_directory_uri() . '/' );
 define( 'THEME_DIR', get_template_directory() . '/' );
 
 // Chi duong dan do_action den Template hooks 
+require_once THEME_DIR . 'inc/template-functions.php';
 require_once THEME_DIR . 'inc/template-hooks.php';
-
-
 require_once THEME_DIR . 'inc/customizer.php';
 
-/*
-@ Thiet lap chieu rong noi dung
-*/ 
-if ( !isset( $content_with ) ){
+
+/* @ Thiet lap chieu rong noi dung */ 
+if ( ! isset( $content_with ) ) {
     $content_with = 1200;
 }
 
@@ -174,7 +172,7 @@ if ( ! function_exists( 'phungdat_blog_info' ) ) {
     }
 }
 
-if ( ! function_exists( 'phungdat_category' ) ){
+if ( ! function_exists( 'phungdat_category' ) ) {
     function phungdat_category() {
         ?>
         <div class="archive-title">
@@ -202,7 +200,6 @@ if ( ! function_exists( 'phungdat_category' ) ){
     }
 }
 
-
 /*phungdat_entry_header = hien thi tieu de post*/
 if ( ! function_exists( 'phungdat_entry_header' ) ) {
     function phungdat_entry_header() { ?>
@@ -214,36 +211,7 @@ if ( ! function_exists( 'phungdat_entry_header' ) ) {
     <?php }
 }
 
-/*phungdat_entry_meta = lay du lieu post*/
-if ( !function_exists( 'phungdat_entry_meta' ) ) {
-    function phungdat_entry_meta() { ?>
-        <?php if ( ! is_page() ) : ?>
-            <div class="entry_meta">
-                <?php
-                    printf(  __( '<span class="author"> Posted by %1$s' , 'phungdat' ),
-                        get_the_author() );
 
-                    printf( __( '<span class="date_published"> at %1$s' , 'phungdat' ),
-                        get_the_date() );
-
-                    printf( __( '<span class="category"> in %1$s ' , 'phungdat'  ),
-                        get_the_category_list() );
-
-                    if ( comments_open() ):
-                        echo '<span class="meta-reply">';
-                            comments_popup_link(
-                                __( 'Leave a comment', 'phungdat' ),
-                                __( 'One comment', "phungdat" ),
-                                __( '% comments', 'phungdat' ),
-                                __( 'Read all comments', 'phungdat' )
-                            );
-                        echo '</span>';
-                    endif;
-                ?>
-            </div>
-        <?php endif; ?>
-    <?php }
-}
 
 /**   
     @ Hàm hiển thị nội dung của post type
@@ -372,7 +340,3 @@ if ( ! function_exists( 'phungdat_logo_footer' ) ) {
         <?php
     }
 }
-
-
-
-

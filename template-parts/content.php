@@ -6,27 +6,5 @@ if ( ! is_singular( 'post' ) ) {
 ?>
 
 <article id="post- <?php the_ID(); ?>" <?php post_class( $class ); ?>>
-    <div class="blog-post">
-        <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail(); ?>
-        </a>
-
-        <?php
-            if ( is_singular( 'post' ) ) {
-                the_content();
-            }
-        ?>
-
-       <?php
-        if ( is_singular( 'post' ) ) {
-            get_template_part( 'author-bio' );
-        }       
-        ?>
-
-        <h2 class="blog-post-title blog-single">
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-        </h2>
-
-
-    </div>
+    <?php do_action( 'phungdat_post' ); ?>
 </article>

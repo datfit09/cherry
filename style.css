@@ -49,6 +49,14 @@ a {
     color: #000;
 }
 
+p {
+    line-height: 30px;
+}
+
+h2 {
+    margin: 10px 0;
+}
+
 li {
     list-style: none;
 }
@@ -56,8 +64,27 @@ li {
 .pagination {
     display: block;
     clear: both;
+    padding-top: 30px;
 }
 
+.pagination a {
+    color: #e66920;
+}
+
+.pagination a:hover, .pagination a:active {
+    color: #bababa;
+}
+
+.pagination-previous {
+    display: block;
+    float: left;
+    padding-left: 50px;
+}
+.pagination-next {
+    display: block;
+    float: right;
+    padding-right: 50px;
+}
     
 .row {
     margin-left: -15px;
@@ -375,7 +402,11 @@ ul.blog-info.blog {
     margin-bottom: 10px;
 }
 
-h2.blog-post-title.blog-single{
+h2.blog-post {
+
+}
+
+h2.blog-post-title.blog-single a {
     text-transform: uppercase;
 }
 
@@ -387,10 +418,19 @@ h2.blog-post-title.blog-single{
     display: flex;
     justify-content: center;
 }
-.blog-info li {
-    padding: 18px; }
+
+.blog-info.blog {
+    color: #bababa;
+    font-family: "DroidSerif";
+    margin: 15px 0;
+}
+
 .blog-info li span {
     padding-right: 10px;
+}
+
+.meta-reply a{
+    color: #bababa;
 }
     
 .blog-text {
@@ -468,7 +508,6 @@ h2.blog-post-title.blog-single{
     display: inline-block;
     background-color: #fff;
     padding: 30px 0;
-    border: 1px solid #aeaeae;
     border-right: none;
     border-left: none;
 }
@@ -642,7 +681,12 @@ span.says, .reply{
 }
 
 .athour-box {
-    margin: 20px 0;
+    margin: 15px 0;
+    border: 1px solid #aeaeae;
+    border-left: none;
+    border-right: none;
+    display: block;
+    clear: both;
 }
 
 /*-Blog -grid site*/
@@ -661,18 +705,11 @@ rotate .blog img:hover {
 }
     
 .blog-post-title {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 14px;                    
+    line-height: 30px;
     margin: 10px 0;
-}
-    
-.blog-info.blog {
-    color: #bababa;
-    font-family: "DroidSerif";
-    justify-content: flex-start;
-}
-.blog-info.blog li {
-    padding: 0 30px 0 0; 
+    text-align: center;
+    padding: 15px 0;
 }
     
 .blog-follow {
@@ -1162,5 +1199,31 @@ blockquote.right {
     position: absolute;
     width: 1px;
     word-wrap: normal !important;
-    }
-    
+}
+
+.summary {
+    margin-bottom: 50px; 
+}
+
+.summary:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.blog .format-audio{
+    display: flex;
+    flex-direction: column;
+}
+
+.blog .format-audio .blog-post-title{
+    order: 2;
+}
+
+.blog .format-audio .post-thumbnail-image {
+    order: 1;
+}
+
+.blog .format-audio .blog-info {
+    order: 3;
+}

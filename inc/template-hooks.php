@@ -1,1 +1,1 @@
-<?phpadd_action( 'after_single_author', 'phungdat_blog_info' );
+<?phpadd_action( 'after_single_author', 'phungdat_blog_info' );add_action( 'phungdat_post', 'phungdat_post_title', 10 );add_action( 'phungdat_post', 'phungdat_post_thumbnail', 20 );add_action( 'phungdat_post', 'phungdat_entry_meta', 30 );add_action( 'phungdat_post', 'phungdat_post_content', 40 );add_action( 'phungdat_post', 'phungdat_post_author', 50 );add_action( 'after_loop', 'phungdat_pagination', 20 );

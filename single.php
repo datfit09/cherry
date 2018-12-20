@@ -12,10 +12,12 @@
                                 the_post();
 
                                 get_template_part( 'template-parts/content' , get_post_format() );
-
-                                is_single() ? phungdat_entry_tag() : '';
                                 
+                                if ( comments_open() || get_comments_number() ) {
+                                    comments_template();
+                                }
                             endwhile;
+
                         else:
                             get_template_part( 'template-parts/content', 'none' );
                         endif;

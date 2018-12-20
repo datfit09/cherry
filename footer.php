@@ -10,7 +10,7 @@
                     CHERRY RESTAURANT
                 </h2>
                 
-                <p>Nam at aliquam neque. In fermentum fermentum nisl, eget lacinia dolor lobortis ac. Fusce maximus congue ligula ac vehicula. Morbi auctor et leo lacinia mollis. Vestibulum interdum lorem fringilla ipsum iaculis eleifend. Vestibulum interdum lorem fringilla ipsum iaculis eleifend. Nunc sagittis mi quis tincidunt auctor.</p>
+                <p><?php echo esc_html( get_option( 'footer_description' ) ); ?></p>
             </div>
 
             

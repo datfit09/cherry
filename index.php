@@ -18,14 +18,7 @@
                                 }
                             endwhile;
 
-                            ?>
-                            <div class="pagination">
-                                <?php
-                                next_posts_link();
-                                previous_posts_link();
-                                ?>
-                            </div>
-                            <?php
+                            do_action( 'after_loop' );
 
                         else:
                             get_template_part( 'template-parts/content', 'none' );
