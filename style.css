@@ -1227,3 +1227,10 @@ blockquote.right {
 .blog .format-audio .blog-info {
     order: 3;
 }
+
+.entry-tag, .entry-tag a {
+    color: #bababa;
+}
+.entry-tag a:hover, .entry-tag a:active {
+    color: #000;
+}
