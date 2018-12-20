@@ -151,26 +151,6 @@ if ( !function_exists( 'phungdat_thumbnail' ) ) {
     <?php }
 }
 
-// Ham tao thong tin blog /* add thêm file trong hooks /template-hooks  */
-if ( ! function_exists( 'phungdat_blog_info' ) ) {
-    function phungdat_blog_info() {
-        ?>
-        <ul class="blog-info blog">
-            <li>
-                <span class="fa fa-calendar"></span>
-                <?php echo get_the_date(); ?>
-            </li>
-
-            <?php if ( ! is_singular( 'single' ) ) { ?>
-                <li>
-                    <span class="fa fa-eye"></span>
-                    <?php comments_number( 'no responses', 'one response', '%' ); ?>
-                </li>
-            <?php } ?>
-        </ul>
-        <?php
-    }
-}
 
 if ( ! function_exists( 'phungdat_category' ) ) {
     function phungdat_category() {
@@ -235,19 +215,6 @@ if ( ! function_exists( 'phungdat_entry_content' ) ) {
         wp_link_pages( $link_pages );
         }
       }
-}
-/**
-@ Hàm hiển thị tag của post
-@ phungdat_entry_tag()
-**/
-if ( ! function_exists( 'phungdat_entry_tag' ) ) {
-  function phungdat_entry_tag() {
-    if ( has_tag() ) :
-      echo '<div class="entry-tag">';
-      printf( __( 'Tagged in %1$s', 'phungdat'), get_the_tag_list( '', ' ,' ) );
-      echo '</div>';
-    endif;
-  }
 }
 
 /**
@@ -333,10 +300,30 @@ if ( ! function_exists( 'phungdat_logo' ) ) {
 if ( ! function_exists( 'phungdat_logo_footer' ) ) {
     function phungdat_logo_footer() {
         $imgft  = get_option( 'footer_logo_image' );
+        ?> <img src="<?php echo esc_url( $imgft ); ?>" alt="<?php esc_attr__( 'Logo Image Footer', 'phungdat' ); ?>"> <?php
+    }
+}
+
+// thay ten title trang single cho trang blog 
+if ( ! function_exists( 'phungdat_title_blog' ) ) {
+    function phungdat_title_blog() {
+        $title     = get_option( 'blog_title' );
+        $sub_title = get_option( 'meta_title' );
+        if ( is_singular( 'post' ) ) {
+            $title = get_the_title();
+        }
         ?>
-
-        <img src="<?php echo esc_url( $imgft ); ?>" alt="<?php esc_attr__( 'Logo Image Footer', 'phungdat' ); ?>">
-
+        <div class="block">
+            <h1 class="blog-title">
+                <?php echo esc_html( $title ); ?>
+            </h1>
+            <h2 class="index-title">
+                <?php echo esc_html( $sub_title ); ?>
+            </h2>
+        </div>
         <?php
     }
 }
+
+
+

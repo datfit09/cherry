@@ -10,7 +10,6 @@
     </div>
     <div class="entry-content">
         <?php phungdat_entry_content(); ?>
-        <?php (is_single() ? phungdat_entry_tag() : '' ); ?>
     </div>
     
 </article>

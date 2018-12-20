@@ -423,6 +423,7 @@ h2.blog-post-title.blog-single a {
     color: #bababa;
     font-family: "DroidSerif";
     margin: 15px 0;
+    float: left;
 }
 
 .blog-info li span {
@@ -507,9 +508,10 @@ h2.blog-post-title.blog-single a {
 .comment-item, .comment-list .comment-item, .comment-list .comment-item .comment-con {
     display: inline-block;
     background-color: #fff;
-    padding: 30px 0;
+    padding: 15px 0;
     border-right: none;
     border-left: none;
+    width: 100%;
 }
     
 img.avatar.avatar-96.photo.avatar-default {
@@ -707,9 +709,7 @@ rotate .blog img:hover {
 .blog-post-title {
     font-size: 14px;                    
     line-height: 30px;
-    margin: 10px 0;
-    text-align: center;
-    padding: 15px 0;
+    padding: 10px 0;
 }
     
 .blog-follow {
@@ -838,6 +838,7 @@ table#wp-calendar {
 caption {
     padding: 20px 0;
     border: 1px solid #e6e6e6;
+    text-align: center;
 }
 thead {
     background: #f5f5f5;
@@ -855,8 +856,11 @@ td {
 }
 
 #today {
-    border: 1px solid #f6f6;
-    border-radius: 50%;
+    border: 3px solid #dde019;
+    background: #cec345;
+    color: #e65014;
+    font-size: 18px;
+    padding-left: 8px;
 }
 
 .search-page {

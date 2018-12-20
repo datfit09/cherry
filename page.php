@@ -17,7 +17,22 @@
                                     comments_template();
                                 }
                             endwhile;
+
+                            do_action( 'after_loop' );
+
                         else:
                             get_template_part( 'template-parts/content', 'none' );
                         endif;
                         ?>
+                    </div>
+                </div>
+
+                <div id="sidebar" class="col-md-4 slide-bar">
+                    <?php get_sidebar(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php get_footer(); ?>
